@@ -1,0 +1,35 @@
+version: "2"
+linters:
+  default: all
+  disable:
+    - wsl
+    - ireturn
+    - depguard
+    - errcheck
+    - wrapcheck
+    - varnamelen
+    - noinlineerr
+    - exhaustruct
+  settings:
+    revive:
+      rules:
+        - name: package-comments
+          disabled: true
+    wsl_v5:
+      allow-first-in-block: true
+      allow-whole-block: false
+  exclusions:
+    rules:
+      - path: _test\.go$
+        linters:
+          - err113
+formatters:
+  enable:
+    - gci
+    - gofumpt
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
